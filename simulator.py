@@ -3,6 +3,16 @@ from modMul import ModMul
 from PE import PE
 
 
+# note: we have to think about how to clock better
+# unsure whether we should consider the sub modules to have a clock delay (register at either end)
+# if we do: then it is easier to see the flow of data \ but cannot accurately asses the scheduling mechanics of the DFS Unit
+# if we dont: then it is harder to see the flow of data (would need to inspect registers instead of being able to print at every computation (harder to see whats going on))
+# it doesnt hurt to try both but we should think more about which one makes sense 
+# ideally: works combinationally and models the scheduling mechanics of the DFS module (but were a while away from that lets get this part perfect)
+# i think there should be both modes : 
+# case 1: the register doesnt read the right value -> go to "testing mode", check where things are going wrong
+# case 2: the register reads correctly -> move to next piece (but still nice to have this debug measurement)
+
 
 #----------------------# 
 def test_modAdd():
